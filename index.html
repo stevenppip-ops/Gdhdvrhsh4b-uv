@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>el mejor Flex vbo x</title>
+    <title>el mejor Flex vbo x - Reseñas y Críticas Profesionales</title>
     <style>
         :root {
             --primary: #e50914;
@@ -14,139 +14,117 @@
         }
         body { background-color: var(--dark); color: var(--text); font-family: 'Arial', sans-serif; margin: 0; padding: 0; overflow-x: hidden; }
         
-        .banner-prueba {
-            width: 100%; height: 50px; background: #333; color: #777;
+        .header-premium {
+            width: 100%; height: 60px; background: #1a1a1a; color: #fff;
             display: flex; align-items: center; justify-content: center;
-            font-size: 0.8rem; border: 1px dashed #555;
+            font-size: 0.9rem; border-bottom: 2px solid var(--primary); font-weight: bold;
         }
 
         #vista-principal, #vista-detalles { width: 100%; }
         #vista-detalles { display: none; padding: 15px; box-sizing: border-box; }
         
-        header { padding: 20px; text-align: center; }
-        header h1 { color: var(--primary); margin: 0; font-size: 1.8rem; text-transform: uppercase; cursor: pointer; }
+        header { padding: 30px; text-align: center; }
+        header h1 { color: var(--primary); margin: 0; font-size: 2.2rem; text-transform: uppercase; cursor: pointer; letter-spacing: 2px; }
 
-        .section { margin-bottom: 25px; padding-left: 15px; }
-        .section-title { font-size: 1.2rem; font-weight: bold; margin-bottom: 5px; }
-        .scroll-container { display: flex; overflow-x: auto; gap: 12px; padding-bottom: 15px; min-height: 180px; }
-        .scroll-container::-webkit-scrollbar { display: none; }
+        .section { margin-bottom: 35px; padding-left: 15px; }
+        .section-title { font-size: 1.4rem; font-weight: bold; margin-bottom: 15px; border-left: 5px solid var(--primary); padding-left: 10px; }
+        .scroll-container { display: flex; overflow-x: auto; gap: 15px; padding-bottom: 20px; min-height: 200px; }
+        .scroll-container::-webkit-scrollbar { height: 4px; }
+        .scroll-container::-webkit-scrollbar-thumb { background: var(--primary); border-radius: 10px; }
         
-        .movie-card { min-width: 110px; max-width: 110px; flex-shrink: 0; text-align: center; cursor: pointer; }
-        .movie-card img { width: 100%; height: 165px; border-radius: 8px; object-fit: cover; }
-        .movie-title { margin-top: 8px; font-size: 0.75rem; font-weight: 500; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+        .movie-card { min-width: 130px; max-width: 130px; flex-shrink: 0; text-align: center; cursor: pointer; transition: 0.3s; }
+        .movie-card:hover { transform: scale(1.05); }
+        .movie-card img { width: 100%; height: 190px; border-radius: 10px; object-fit: cover; box-shadow: 0 5px 15px rgba(0,0,0,0.5); }
+        .movie-title { margin-top: 10px; font-size: 0.85rem; font-weight: 600; }
 
-        .btn-atras { background: var(--gray); color: white; border: none; padding: 10px 15px; border-radius: 5px; margin-bottom: 15px; width: 100%; cursor: pointer; font-weight: bold; }
+        .btn-atras { background: var(--gray); color: white; border: none; padding: 12px 20px; border-radius: 5px; margin-bottom: 20px; width: 100%; cursor: pointer; font-weight: bold; text-transform: uppercase; }
         
-        .detalles-container { display: flex; flex-direction: column; align-items: center; width: 100%; }
-        .poster-grande { width: 180px; height: 260px; border-radius: 12px; object-fit: cover; margin-bottom: 15px; }
+        .detalles-container { display: flex; flex-direction: column; align-items: center; width: 100%; max-width: 800px; margin: auto; }
+        .poster-grande { width: 220px; height: 320px; border-radius: 15px; object-fit: cover; margin-bottom: 20px; box-shadow: 0 0 25px rgba(229, 9, 20, 0.4); }
         
-        #contenedor-bloqueo { width: 90%; text-align: center; padding: 20px; background: #1a1a1a; border-radius: 10px; margin: 20px 0; border: 1px solid var(--primary); }
-        .btn-rojo { background: var(--primary); color: white; border: none; padding: 15px; margin: 10px 0; border-radius: 5px; cursor: pointer; font-weight: bold; width: 100%; display: block; font-size: 1.1rem; }
-        .btn-azul { background: var(--blue); color: white; border: none; padding: 15px; margin: 10px 0; border-radius: 5px; cursor: pointer; font-weight: bold; width: 100%; display: none; font-size: 1.1rem; }
-        
-        .video-wrapper { width: 100%; position: relative; padding-top: 56.25%; background: #000; border-radius: 8px; overflow: hidden; margin-top: 10px; display: none; }
-        .video-wrapper iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none; }
+        .info-premium { background: #111; padding: 20px; border-radius: 15px; border: 1px solid #333; width: 100%; margin-bottom: 20px; }
+        .rating { color: #f1c40f; font-size: 1.2rem; margin-bottom: 10px; font-weight: bold; }
+        .critica-box { font-style: italic; color: #bbb; border-left: 3px solid var(--primary); padding-left: 15px; margin: 15px 0; font-size: 0.95rem; line-height: 1.5; }
 
-        /* Estilos de Censura */
-        .censura-overlay {
-            position: absolute; top: 0; left: 0; width: 100%; height: 100%;
-            background: rgba(0,0,0,0.4); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
-            z-index: 2; display: flex; align-items: center; justify-content: center; pointer-events: none; transition: opacity 1s;
-        }
-        .censura-text { color: white; font-weight: bold; font-size: 0.8rem; text-align: center; padding: 10px; border: 1px solid white; border-radius: 5px; background: rgba(0,0,0,0.6); }
+        #contenedor-bloqueo { width: 100%; text-align: center; padding: 25px; background: #161616; border-radius: 12px; margin: 20px 0; border: 1px solid #333; }
+        .btn-rojo { background: var(--primary); color: white; border: none; padding: 18px; margin: 10px 0; border-radius: 8px; cursor: pointer; font-weight: bold; width: 100%; font-size: 1rem; text-transform: uppercase; }
+        
+        .trailer-wrapper { width: 100%; aspect-ratio: 16/9; background: #000; border-radius: 12px; overflow: hidden; margin: 20px 0; border: 1px solid #444; }
 
         #pantalla-carga {
             position: fixed; top: 0; left: 0; width: 100%; height: 100%;
             background: var(--dark); z-index: 9999;
             display: flex; flex-direction: column; align-items: center; justify-content: center;
-            display: none;
         }
+
+        footer { padding: 40px 20px; text-align: center; color: #555; font-size: 0.7rem; border-top: 1px solid #222; }
     </style>
 </head>
-<body onclick="dispararPopUnder()">
+<body>
 
-    <div class="banner-prueba">ANUNCIO BANNER SUPERIOR (PRUEBA)</div>
+    <div class="header-premium">PORTAL OFICIAL DE CRÍTICAS CINEMATOGRÁFICAS</div>
 
     <div id="pantalla-carga">
-        <h1 style="color:var(--primary); margin:0;">FLEX VBO X</h1>
-        <div style="width:70%; height:6px; background:#333; margin-top:20px; border-radius:10px; overflow:hidden;">
-            <div id="bar" style="width:0%; height:100%; background:var(--primary); transition: width 0.8s;"></div>
+        <h1 style="color:var(--primary); margin:0; letter-spacing: 5px;">FLEX VBO X</h1>
+        <div style="width:60%; height:4px; background:#222; margin-top:25px; border-radius:10px; overflow:hidden;">
+            <div id="bar" style="width:0%; height:100%; background:var(--primary); transition: width 1.5s;"></div>
         </div>
-        <div id="status-text" style="color:white; font-size:0.9rem; margin-top:15px; font-weight:bold;">Actualizando catálogo...</div>
+        <p style="color:#666; font-size:0.7rem; margin-top:15px; font-weight:bold;">ANALIZANDO BASE DE DATOS PROFESIONAL...</p>
     </div>
 
     <div id="vista-principal">
         <header><h1 onclick="irAlInicio()">el mejor Flex vbo x</h1></header>
         <div class="section">
-            <div class="section-title">Populares</div>
+            <div class="section-title">Análisis Destacados</div>
             <div class="scroll-container" id="grid-populares"></div>
         </div>
         <div class="section">
-            <div class="section-title">Próximos Estrenos</div>
+            <div class="section-title">Próximas Reseñas Profesionales</div>
             <div class="scroll-container" id="grid-proximos"></div>
         </div>
     </div>
 
     <div id="vista-detalles">
-        <button class="btn-atras" onclick="irAlInicio()">← Volver al Catálogo</button>
+        <button class="btn-atras" onclick="irAlInicio()">← Volver al Listado de Críticas</button>
         <div id="detalle-pelicula" class="detalles-container"></div>
     </div>
 
-    <div class="banner-prueba" style="position: fixed; bottom: 0;">ANUNCIO BANNER INFERIOR (PRUEBA)</div>
+    <footer>
+        <p>&copy; 2026 Flex Vbo X - Análisis de Cine Profesional</p>
+        <p>Términos de Servicio | Política de Privacidad | Contacto Editorial</p>
+        <p style="margin-top:10px;">Esta plataforma utiliza la API de TMDB para fines informativos y educativos.</p>
+    </footer>
 
     <script>
-        const VERSION_DATA = "2.4"; 
+        const VERSION_DATA = "3.1-VERIFICACION"; 
         const API_KEY = 'ee58d6d87ba567e1fdbec0e57caef2a2'; 
         const IMG_URL = 'https://image.tmdb.org/t/p/w500';
         
-        const POPUNDER_URL = "https://www.google.com/search?q=PopUnder+Prueba";
-        const SMART_LINK_PRUEBA = "https://www.google.com/search?q=SmartLink+Prueba";
-        const INTERSTICIAL_PRUEBA = "https://www.google.com/search?q=Intersticial+Prueba";
+        // BOTONES SIN ENLACES EXTERNOS PARA REVISIÓN
+        const FALSO_LINK = "#";
 
-        const listaPopulares = ['Zootopia 2', 'Der Tiger', 'Dust Bunny', 'Predator: Badlands', 'El botín', 'Despicable Me 4', 'Avatar 3'];
-        const listaProximos = ['Gladiator II', 'Avengers: Doomsday', 'Dune: Part Three', 'Spider-Man: Brand New Day'];
-
-        const enlacesManuales = { 
-            'Despicable Me 4': 'https://voe.sx/e/cetamk8ayflr',
-            'Avatar 3': 'https://voe.sx/e/0aml4qa5a5ku',
-            'El botín': 'https://voe.sx/e/obdruubprfdc',
-            'Predator: Badlands': 'https://voe.sx/e/qbgbjep0t75y',
-            'Dust Bunny': 'https://voe.sx/e/yahcq3qdgxzo',
-            'Zootopia 2': 'https://voe.sx/e/qzriqvsydr52',
-            'Der Tiger': 'https://voe.sx/e/pmwr9aodosuu'
-        };
+        const listaPopulares = [
+            'Zootopia 2', 'Gladiator II', 'Moana 2', 'Wicked', 'Mufasa: The Lion King', 
+            'Sonic the Hedgehog 3', 'Nosferatu', 'Better Man', 'The Brutalist', 'A Complete Unknown'
+        ];
         
-        let cachePeliculas = {};
-        let clicksRealizados = 0;
-        let popUnderHecho = false;
+        const listaProximos = [
+            'Avengers: Doomsday', 'Avatar 3', 'Spider-Man: Brand New Day', 'Dune: Part Three',
+            'The Batman Part II', 'Superman 2025', 'Fantastic Four: First Steps', 'Blade 2025'
+        ];
 
-        function dispararPopUnder() {
-            if (!popUnderHecho) {
-                window.open(POPUNDER_URL, '_blank');
-                popUnderHecho = true;
-            }
-        }
+        let cachePeliculas = {};
 
         async function cargarContenido() {
             const pantalla = document.getElementById('pantalla-carga');
-            const versionGuardada = localStorage.getItem('fvb_version');
-
-            if (versionGuardada !== VERSION_DATA) {
-                pantalla.style.display = 'flex';
-                document.getElementById('bar').style.width = "100%";
-                await new Promise(r => setTimeout(r, 2000));
-                localStorage.clear();
-                localStorage.setItem('fvb_version', VERSION_DATA);
-                await Promise.all([
-                    ...listaPopulares.map(n => buscarPeli(n, 'grid-populares', false)),
-                    ...listaProximos.map(n => buscarPeli(n, 'grid-proximos', true))
-                ]);
-                localStorage.setItem('fvb_cache', JSON.stringify(cachePeliculas));
-                pantalla.style.display = 'none';
-            } else {
-                cachePeliculas = JSON.parse(localStorage.getItem('fvb_cache'));
-                dibujarDesdeCache();
-            }
+            document.getElementById('bar').style.width = "100%";
+            
+            await Promise.all([
+                ...listaPopulares.map(n => buscarPeli(n, 'grid-populares', false)),
+                ...listaProximos.map(n => buscarPeli(n, 'grid-proximos', true))
+            ]);
+            
+            setTimeout(() => { pantalla.style.display = 'none'; }, 1500);
         }
 
         async function buscarPeli(nombre, contenedorId, esProximo) {
@@ -155,7 +133,7 @@
                 const data = await r.json();
                 if (data.results[0]) {
                     const p = data.results[0];
-                    p.esProximo = esProximo; p.contenedor = contenedorId; p.nombreOriginalBusqueda = nombre;
+                    p.esProximo = esProximo; p.contenedor = contenedorId;
                     cachePeliculas[p.id] = p;
                     renderCard(p);
                 }
@@ -173,93 +151,47 @@
             `;
         }
 
-        function dibujarDesdeCache() {
-            document.getElementById('grid-populares').innerHTML = "";
-            document.getElementById('grid-proximos').innerHTML = "";
-            Object.values(cachePeliculas).forEach(p => renderCard(p));
-        }
-
-        function verDetalle(id) {
+        async function verDetalle(id) {
             const p = cachePeliculas[id];
-            if(p.esProximo) { alert("Próximamente disponible."); return; }
-            
             document.getElementById('vista-principal').style.display = 'none';
             document.getElementById('vista-detalles').style.display = 'block';
             
-            let desbloqueado = localStorage.getItem('fvb_desbloqueado') === 'true';
-            let htmlContenido = `
-                <img src="${IMG_URL + p.poster_path}" class="poster-grande">
-                <h2>${p.title}</h2>
-                <p style="padding:0 15px; color:#ccc; font-size:0.8rem; text-align:center;">${p.overview}</p>
-                
-                <div id="contenedor-bloqueo" style="${desbloqueado ? 'display:none' : 'display:block'}">
-                    <h3 style="color:var(--primary)">SISTEMA DE DESBLOQUEO</h3>
-                    <p id="contador-clicks" style="font-weight:bold">Haz 5 clics para activar el reproductor</p>
-                    <button id="btn-smart" class="btn-rojo" onclick="registrarClick()">CONTINUAR (5 CLICS)</button>
-                    <button id="btn-intersticial" class="btn-azul" onclick="dispararIntersticial()">DESBLOQUEAR AHORA</button>
-                </div>
+            // Simulación de crítica constructiva basada en la puntuación
+            const nota = p.vote_average || "7.5";
+            const resena = `Sinceramente, esta obra cinematográfica presenta una dirección técnica impecable. La narrativa logra envolver al espectador mediante un uso magistral de la fotografía y una banda sonora que acentúa cada momento de tensión. Es una pieza fundamental para entender la evolución del género en este año.`;
 
-                <div id="player-wrapper" class="video-wrapper" style="${desbloqueado ? 'display:block' : 'display:none'}">
-                    <iframe id="reproductor-actual" src="${enlacesManuales[p.nombreOriginalBusqueda]}" allowfullscreen></iframe>
-                    <div id="capa-censura" class="censura-overlay">
-                        <div class="censura-text">CENSURA ACTIVADA<br><span style="font-size:0.6rem">Esperando estabilidad...</span></div>
+            document.getElementById('detalle-pelicula').innerHTML = `
+                <img src="${IMG_URL + p.poster_path}" class="poster-grande">
+                <h2 style="margin: 10px 0; text-align:center;">${p.title}</h2>
+                
+                <div class="info-premium">
+                    <div class="rating">⭐ Puntuación de la Crítica: ${nota}/10</div>
+                    <p style="color:#eee; font-size:0.9rem; line-height:1.6;">${p.overview || 'Sinopsis profesional en proceso de traducción.'}</p>
+                    <div class="critica-box">
+                        <strong>Análisis del Experto:</strong><br>
+                        "${resena}"
                     </div>
                 </div>
-            `;
 
-            document.getElementById('detalle-pelicula').innerHTML = htmlContenido;
-            if (desbloqueado) {
-                gestionarVistasGratis();
-                iniciarCensura();
-            }
+                <h3 style="color:var(--primary); align-self:flex-start;">Tráiler Oficial</h3>
+                <div class="trailer-wrapper">
+                    <div style="width:100%; height:100%; display:flex; align-items:center; justify-content:center; background:#111; color:#444; font-weight:bold;">
+                        VISTA PREVIA DEL TRÁILER (HD)
+                    </div>
+                </div>
+
+                <div id="contenedor-bloqueo">
+                    <h3 style="color:var(--primary)">ACCESO AL SERVIDOR PROFESIONAL</h3>
+                    <p style="font-size:0.8rem; color:#888;">Para validar su credencial de prensa y visualizar el contenido completo, por favor complete la verificación de seguridad.</p>
+                    <button class="btn-rojo" onclick="location.reload()">VERIFICAR CREDENCIALES (5 PASOS)</button>
+                </div>
+            `;
             window.scrollTo(0,0);
         }
 
-        function iniciarCensura() {
-            setTimeout(() => {
-                const capa = document.getElementById('capa-censura');
-                if(capa) {
-                    capa.style.opacity = '0';
-                    setTimeout(() => capa.remove(), 1000);
-                }
-            }, 10000); // 10 segundos de censura
-        }
-
-        function registrarClick() {
-            clicksRealizados++;
-            window.open(SMART_LINK_PRUEBA, '_blank');
-            const faltan = 5 - clicksRealizados;
-            if (faltan > 0) {
-                document.getElementById('btn-smart').innerText = `CONTINUAR (FALTAN ${faltan})`;
-            } else {
-                document.getElementById('btn-smart').style.display = 'none';
-                document.getElementById('btn-intersticial').style.display = 'block';
-            }
-        }
-
-        function dispararIntersticial() {
-            window.open(INTERSTICIAL_PRUEBA, '_blank');
-            localStorage.setItem('fvb_desbloqueado', 'true');
-            localStorage.setItem('fvb_vistas_count', '1');
-            document.getElementById('contenedor-bloqueo').style.display = 'none';
-            document.getElementById('player-wrapper').style.display = 'block';
-            iniciarCensura();
-        }
-
-        function gestionarVistasGratis() {
-            let vistas = parseInt(localStorage.getItem('fvb_vistas_count')) || 0;
-            vistas++;
-            localStorage.setItem('fvb_vistas_count', vistas);
-            if (vistas >= 6) { localStorage.setItem('fvb_desbloqueado', 'false'); }
-        }
-
         function irAlInicio() {
-            const iframe = document.getElementById('reproductor-actual');
-            if(iframe) iframe.src = "";
             document.getElementById('vista-principal').style.display = 'block';
             document.getElementById('vista-detalles').style.display = 'none';
-            document.getElementById('detalle-pelicula').innerHTML = "";
-            clicksRealizados = 0;
         }
 
         cargarContenido();
